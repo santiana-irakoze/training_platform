@@ -1,0 +1,71 @@
+.custom-card {
+  background: linear-gradient(to right, #afdadc, #6af1e1); /* Gradient background */
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+  color: #fff; /* White text for the title */
+  font-weight: bold;
+}
+
+.form-inputs .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-inputs .form-control {
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd; /* Light border */
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+.form-inputs .form-control:focus {
+  border-color: $very-light-blue; /* Highlight color on focus */
+  box-shadow: 0 0 8px rgba(255, 126, 95, 0.5); /* Subtle glow */
+}
+
+.btn-primary {
+  background-color: $very-light-blue;
+  border-color: $light-beige;
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: $light-green; /* Hover effect with lighter color */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.text-center {
+  font-size: 0.8rem;
+  color: #666; /* Subtle text for links */
+}
+
+.text-center a {
+  text-decoration: none;
+  color: $light-green;
+  font-weight: bold;
+}
+
+.text-center a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+@media (max-width: 576px) {
+  .custom-card {
+    padding: 1.5rem;
+  }
+}

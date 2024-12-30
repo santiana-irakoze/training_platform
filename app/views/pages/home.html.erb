@@ -4,20 +4,24 @@
 
   <div class="home-with-pic">
     <div class="home-header-and-CTA">
-      <div class="ms-2 mb-4" data-controller="text-animation">
-          <h3>Enhance Your Skills and Knowledge by</h3>
-          <h2 class="home-text"data-text-animation-target="text"style="color: #b197fc"></h2>
-            <%= link_to "Start Your Journey", root_path,
-                        class: "main-cta-home" %>
+      <!-- Text Animation Section -->
+      <div class="text-animation-container ms-2 mb-4" data-controller="text-animation">
+        <h3 class="text-animation-heading">Enhance Your Skills and Knowledge by</h3>
+        <h2 class="home-text" data-text-animation-target="text" style="color: #AFADAD;"></h2>
       </div>
 
-    </div>
-    <%# div with home picture %>
-
-    <div>
-      <%= image_tag "Allura.png", alt: "two-women-educ-sharing", height: 350 %>
-    </div>
+      <!-- Call-to-Action Section -->
+      <div class="cta-container">
+        <%= link_to "Start Your Journey", root_path, class: "main-cta-home" %>
+      </div>
   </div>
+
+  <!-- Image Section -->
+  <div class="home-image">
+    <%= image_tag "Allura.png", alt: "two-women-educ-sharing", height: 350 %>
+  </div>
+</div>
+
   <%# display-flex with 3 marketing promesses %>
   <div id="promess">
     <div class="mini-card-home">
