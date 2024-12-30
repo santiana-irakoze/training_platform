@@ -1,13 +1,13 @@
 .home-background-1 {
-  background: linear-gradient($background-light-gray, $background-white);
+  background: $white;
 }
 
 .home-background-2 {
-  background: linear-gradient($background-white, $background-light-gray);
+  background: $white;
 }
 
 .background-color-body {
-  background: linear-gradient(135deg, $background-light-gray 20%, $background-white 94%);
+  background: $white;
 }
 
 .home-container {
@@ -30,6 +30,8 @@
   display: flex;
   justify-content: space-between;
   height: 60vh;
+  margin-top: 50px;
+  margin-bottom: -120px;
 }
 
 .home-with-pic img{
@@ -54,7 +56,7 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   text-shadow: -1px 2px 4px $light-shadow-primary;
-  min-height:  18vh;
+  min-height:  27.5vh;
 }
 
 #promess h2 {
@@ -66,21 +68,29 @@
 #promess p {
   letter-spacing: -1px;
 }
-
-
-.scroll-down {
-  text-align: center;
-  max-height: 5vh;
+#replace-me:after {
+  content: "";
+  animation: spin 20s linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
+  transition: opacity 0.5s ease-in-out;
 }
 
-.steps-to-jobsharing {
-  display: flex;
-  flex-wrap: wrap;
+@keyframes spin {
+  0% {
+    content: "training Anytime, Anywhere...";
+  }
+  25% {
+    content: "de vous rendre au 96ᵉ anniversaire de votre grande-tante";
+  }
+  50% {
+    content: "d'aller au spectacle de danse de votre nièce";
+  }
+  75% {
+    content: "de vous rendre à l'accouchement de votre femme";
+  }
+  100% {
+    content: "d'aider Alex à déménager";
+  }
 }
-
-.cards-steps-to-jobsharing {
-  border: 0.2px solid $dark-gray-secondary;
-  border-radius: 4px;
-  box-shadow: 0px 1px $light-shadow-secondary;
-}
-

@@ -1,9 +1,9 @@
 .footer {
-  background: #F4F4F4;
+  background:$white;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 0px 50px;
+  padding: 0px 50px 15px 15px;
   color: rgba(0,0,0,0.3);
   position: sticky;
 }
@@ -23,4 +23,8 @@
 }
 .footer .fa-heart {
   color: #df1e5e;
+}
+.footer-copyright {
+  font-size: 14px;
+  font-family: $body-font;
 }

@@ -5,7 +5,7 @@ $red: #FD1015;
 $blue: #0D6EFD;
 $yellow: #FFC65A;
 $orange: #E67E22;
-$green: #1EDD88;
+$green: #0ae523;
 $gray: #0E0000;
 $light-gray: #F4F4F4;
 
@@ -14,7 +14,7 @@ $light-gray: #F4F4F4;
 $very-very-light-green : #daefe6;
 
 $very-light-green :      #a8eacc;
-$light-green :           #3bdc93;
+$light-green :           #00CCCC;
 $mid-green:              #21cb7f;
 $dark-green:             #20b974;
 
@@ -47,7 +47,7 @@ $light-shadow-blue:     rgba(11,26,32,0.08);
 
 // Main colors:
 
-$white-primary:         $white-purple;
+$white-primary:         white;
 $light-gray-primary:    $light-purple;
 $gray-primary:          $mid-purple;
 $dark-gray-primary:     $dark-purple;
@@ -57,7 +57,7 @@ $box-shadow-primary:     rgba(26, 2, 15, 0.8);
 $mid-shadow-primary:     rgba(26, 2, 15, 0.5);
 $light-shadow-primary:   rgba(26, 2, 15, 0.1);
 
-$background-primary:    $white-primary;
+$background-primary:    white;
 
 // secondary colors:
 
@@ -74,7 +74,7 @@ $light-shadow-secondary:  rgba(8, 13, 13, 0.2);
 
 // background colors:
 
-$background-white:      $very-light-beige;
+$background-white:      white;
 $background-light-gray: $light-beige;
 $background-gray:       $light-beige;
 $background-dark:       $mid-beige;
@@ -95,7 +95,7 @@ $background-black:      $dark-beige;
 $memory-h1: #2c3e50;
 
 $very-light-green : #a8eacc;
-$light-green : #3bdc93;
+$light-green : #3B00DB;
 $mid-green: #21cb7f;
 $dark-green: #20b974;
 

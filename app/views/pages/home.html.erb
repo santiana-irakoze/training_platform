@@ -4,11 +4,14 @@
 
   <div class="home-with-pic">
     <div class="home-header-and-CTA">
-        <h2><span>Enhance Your Skills and Knowledge! <br/></span> by training Anytime/Anywhere</h2>
-          <%= link_to "Start Your Journey", root_path,
-                      class: "btn btn-primary main-cta-home" %>
-    </div>
+      <div class="ms-2 mb-4" data-controller="text-animation">
+          <h3>Enhance Your Skills and Knowledge by</h3>
+          <h2 class="home-text"data-text-animation-target="text"style="color: #b197fc"></h2>
+            <%= link_to "Start Your Journey", root_path,
+                        class: "main-cta-home" %>
+      </div>
 
+    </div>
     <%# div with home picture %>
 
     <div>
