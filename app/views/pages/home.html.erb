@@ -1,2 +1,34 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home-background-1 home-container">
+
+  <%# div with title, picture and CTA %>
+
+  <div class="home-with-pic">
+    <div class="home-header-and-CTA">
+        <h2><span>Enhance Your Skills and Knowledge! <br/></span> by training Anytime/Anywhere</h2>
+          <%= link_to "Start Your Journey", root_path,
+                      class: "btn btn-primary main-cta-home" %>
+    </div>
+
+    <%# div with home picture %>
+
+    <div>
+      <%= image_tag "Allura.png", alt: "two-women-educ-sharing", height: 350 %>
+    </div>
+  </div>
+  <%# display-flex with 3 marketing promesses %>
+  <div id="promess">
+    <div class="mini-card-home">
+      <h2>Personalized Learning</h2>
+      <p>Track your<br/>progress, strengths & weaknesses</p>
+    </div>
+    <div class="mini-card-home">
+      <h2>Performance</h2>
+      <p>Focus <br/>on your areas of improvement</p>
+    </div>
+    <div class="mini-card-home">
+      <h2>Comprehensive Insights</h2>
+      <p>Enable <br/>data-driven decisions</p>
+    </div>
+  </div>
+
+</div>

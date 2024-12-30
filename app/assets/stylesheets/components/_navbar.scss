@@ -10,3 +10,16 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.nav-background {
+  padding-left: 16px;
+}
+
+.nav-item {
+  color : $mid-green;
+  border-radius: 4px;
+}
+
+.nav-item:hover {
+  box-shadow: 2px 2px 2px 2px $mid-shadow-primary;
+}
