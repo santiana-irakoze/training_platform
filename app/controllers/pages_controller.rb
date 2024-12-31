@@ -4,5 +4,6 @@ class PagesController < ApplicationController
   end
   def dashboard_students
     @students = User.where(status: 'Student')
+    @tests = current_user.tests 
   end
 end

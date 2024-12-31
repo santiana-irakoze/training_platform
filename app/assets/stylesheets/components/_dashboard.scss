@@ -1,55 +1,90 @@
+/* Container */
+.dashboard-container {
+  display: flex;
+  background-color: white;
+  font-family: Arial, sans-serif;
+}
 
-$color-dark: #222;
-$color-body: #ccc;
-$color-background: white;
-
-.sidebar {
-  height: 25vh; // experiment with this value, try changing to 110vh
-  min-height: 200px;
-  overflow: auto;
-  position: -webkit-sticky;
+/* Sidebar */
+.dashboard-sidebar {
+  width: 144px;
+  background-color: white;
   position: sticky;
-  top: 5%;
+  top: 0;
+  height: 90vh;
+  padding-left: 5px;
+  padding-top: 20px;
+  box-shadow: 1px 0px 0px rgba(244, 241, 243, 0.5)
 }
 
-.main {
-  width: 60%;
-  height: 200vh;
-  min-height: 1000px;
-  display: flex;
-  flex-direction: column;
+.dashboard-tabs {
+  list-style-type: none;
+  padding: 0;
 }
 
-.main,
-.sidebar {
-  border: 5px solid $color-dark;
-  background-color: $color-background;
-  border-radius: 10px;
-  color: $color-dark;
-  padding: 15px;
+.dashboard-tab {
+  display: block;
+  padding: 15px 20px;
+  color: #662549;
+  margin: 10px 0;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
+.dashboard-tab:hover,
+.dashboard-tab.active {
+  background-color: $very-light-beige;
 }
 
-// Decoration for demo
-
-body {
-  padding: 3%;
-  background-color: $color-body;
-  font-size: 20px;
-  box-sizing: border-box;
-  font-family: Lato, sans-serif;
+/* Main Content */
+.dashboard-main {
+  flex-grow: 1;
+  padding: 30px;
+  background-color: #ffffff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
 }
 
-code, pre {
-  background-color: #ccc;
-  padding: 0 3px;
-  border-radius: 5px;
+
+
+
+
+.dashboard-cards {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
 }
 
-.bottom {
-  justify-self: bottom;
+.dashboard-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: box-shadow 0.3s;
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-card p {
+  margin: 0 0 15px;
+  font-size: 14px;
+  color: #666;
+}
+
+.dashboard-card-link {
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.dashboard-card-link:hover {
+  text-decoration: underline;
 }

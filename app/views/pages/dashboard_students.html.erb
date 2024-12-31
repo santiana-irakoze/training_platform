@@ -1,21 +1,79 @@
-<div class="container">
-  <div class="side-bar">
-    <ul class="list-inline tabs-underlined">
-    <li>
-      <a href="#" class="tab-underlined active">Dashboard</a>
-    </li>
-    <li>
-      <a href="#" class="tab-underlined active">Tests Catalog</a>
-    </li>
-    <li>
-      <a href="#" class="tab-underlined">My learning history </a>
-    </li>
+<div class="dashboard-container">
+  <!-- Sidebar -->
+  <div class="dashboard-sidebar col-1">
+    <ul class="dashboard-tabs">
+      <!-- Dashboard Tab -->
+      <li>
+        <%= link_to dashboard_students_path, class: "dashboard-tab", data: { turbo_frame: "preview" } do %>
+          <i class="fa-solid fa-table-columns"></i> Dashboard
+        <% end %>
+      </li>
+      <!-- Tests Catalog Tab -->
+      <li>
+        <%= link_to tests_path, class: "dashboard-tab", data: { turbo_frame: "details" } do %>
+          <i class="fas fa-book"></i> Catalog
+        <% end %>
+      </li>
+      <!-- Historic Tab (Showing Tests Passed by User) -->
+      <li>
+        <%= link_to tests_path, class: "dashboard-tab", data: { turbo_frame: "historic" } do %>
+          <i class="fa-solid fa-chart-line"></i> Historic
+        <% end %>
+      </li>
     </ul>
+  </div>
 
-</div>
+  <!-- Main Content -->
+  <div class="main-content col-11">
+    <!-- Dashboard Content (Preview) -->
+    <div class="results" id="results">
+      <%= turbo_frame_tag "preview" do %>
+      <div class="dashboard-container">
+        <h3>Keep learning !</h3>
+        <div class="d-flex justify-content-evenly">
+          <div class="dashboard-cards">
+            <div class="dashboard-card">
+              <p>quelques tests apparaitront ici</p>
+            </div>
+            </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
 
-<div class="main">
-  Main content
-</div>
+    <!-- Test Catalog Content (Details) -->
+    <div class="details">
+      <%= turbo_frame_tag "details" do %>
+        <h2>Test Catalog</h2>
+        <% @tests.each do |test| %>
+          <div class="test-card">
+            <%= link_to test_path(test), class: "test-link" do %>
+              <h3>Test <%= test.id %></h3>
+              <p>Duration: <%= test.duree %> seconds</p>
+              <p>Score: <%= test.score %></p>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
 
+    <!-- Historic Content (Learning History) -->
+    <div class="historic">
+      <%= turbo_frame_tag "historic" do %>
+        <% if current_user.tests.nil? || current_user.tests.empty? %>
+          <h3>No tests passed yet!</h3>
+        <% else %>
+          <h2>Your Learning History</h2>
+          <% current_user.tests.each do |test| %>
+            <div class="test-card">
+              <h3>Test <%= test.id %></h3>
+              <p>Score: <%= test.score %></p>
+              <p>Duration: <%= test.duree %> seconds</p>
+              <p>Date: <%= test.date.strftime("%B %d, %Y") %></p>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

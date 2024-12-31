@@ -1,5 +1,3 @@
-require "test_helper"
-
 class UserTest < ActiveSupport::TestCase
-  has_many :tests
+  has_many :tests, dependent: :destroy
 end
