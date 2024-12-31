@@ -5,11 +5,11 @@ export default class extends Controller {
 
   connect() {
     this.phrases = [
-      "training Anytime, Anywhere ...",
-      "helping Alex move",
-      "attending your niece's dance recital",
-      "being at your wife’s delivery",
-      "celebrating your great-aunt’s 96th birthday"
+      "training anytime, anywhere ...",
+      "mastering new techniques at your own pace",
+      "exploring new concepts",
+      "engaging in practical exercises whenever you choose",
+      "staying on top of your game"
     ];
     this.currentIndex = 0;
 

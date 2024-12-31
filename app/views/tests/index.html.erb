@@ -1,0 +1,11 @@
+<h1>Your Test History</h1>
+<ul>
+  <% @tests.each do |test| %>
+    <li>
+      <%= link_to "Test ##{test.id}", test_path(test) %>
+      <span>Score: <%= test.score %></span>
+      <span>Duration: <%= test.duration %> seconds</span>
+      <span>Date: <%= test.date.strftime("%b %d, %Y") %></span>
+    </li>
+  <% end %>
+</ul>

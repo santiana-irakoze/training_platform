@@ -12,7 +12,7 @@
       </a>
       <ul class="navbar-nav mx-auto mb-lg-0 gap-4">
         <li class="nav-item">
-          <a class="nav-link" href="#">Catalog</a>
+          <a class="nav-link" href="#">FAQ</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">About</a>
@@ -23,8 +23,7 @@
       </ul>
 
       <% if user_signed_in? %>
-        <%= link_to "Mon tableau de bord", dashboard_searches_path, class: "secondary-cta" %>
-        <%#= link_to "Se déconnecter", destroy_user_session_path, data: { turbo_method: :delete} %>
+        <%= link_to "My dashboard", dashboard_students_path, class: "secondary-cta" %>
         <%= link_to "log out", destroy_user_session_path, data: { "turbo-method": :delete }, class: "secondary-cta" %>
       <% else %>
         <%= link_to "Sign in", new_user_registration_path, class: "secondary-cta" %>

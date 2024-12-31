@@ -10,9 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_30_191940) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_30_223936) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "questions", force: :cascade do |t|
+    t.string "content"
+    t.string "answer"
+    t.text "options"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.bigint "test_id", null: false
+    t.string "chosen_option"
+    t.boolean "is_correct"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_responses_on_question_id"
+    t.index ["test_id"], name: "index_responses_on_test_id"
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "score"
+    t.integer "duration"
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tests_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +58,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_30_191940) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "responses", "questions"
+  add_foreign_key "responses", "tests"
+  add_foreign_key "tests", "users"
 end

@@ -1,0 +1,23 @@
+<%= form_for @test do |f| %>
+  <h2>Questions</h2>
+
+  <% @questions.each_with_index do |question, index| %>
+    <div class="form-group">
+      <h4><%= question.content %></h4>
+
+      <%= f.radio_button :answer, question.options[0] %>
+      <%= f.label :answer, question.options[0] %>
+
+      <%= f.radio_button :answer, question.options[1] %>
+      <%= f.label :answer, question.options[1] %>
+
+      <%= f.radio_button :answer, question.options[2] %>
+      <%= f.label :answer, question.options[2] %>
+
+      <%= f.radio_button :answer, question.options[3] %>
+      <%= f.label :answer, question.options[3] %>
+    </div>
+  <% end %>
+
+  <%= f.submit "Submit Test" %>
+<% end %>

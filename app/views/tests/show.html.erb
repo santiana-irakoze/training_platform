@@ -1,0 +1,6 @@
+<h1>Test Details</h1>
+<p><strong>Test ID:</strong> <%= @test.id %></p>
+<p><strong>Score:</strong> <%= @test.score %></p>
+<p><strong>Duration:</strong> <%= @test.duration %> seconds</p>
+<p><strong>Date:</strong> <%= @test.date.strftime("%b %d, %Y") %></p>
+<%= link_to 'Back to History', tests_path %>
