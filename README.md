@@ -15,4 +15,6 @@ et en étant admin, les fonctionnalités permettent de gérer les students (les 
 - **PostgreSQL** pour la base de données
 - **Stimulus
 
+## petit aperçu 👀
+https://santiana-irakoze.github.io/training_platform/
 
