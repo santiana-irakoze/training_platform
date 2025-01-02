@@ -13,6 +13,20 @@ class Test < ApplicationRecord
   validates :format, presence: true, inclusion: { in: ['Multiple Choice', 'Written', 'Mixed'] }
   validates :status, inclusion: { in: ['available', 'taken', 'archived'] }
 
+  # Check if a student has already taken this test template
+  def taken_by?(student)
+    Test.exists?(
+      user_id: student.id,
+      Name: self.Name,
+      status: 'taken'
+    )
+  end
+
+  # Find the template version of a test
+  def self.find_template(test_name)
+    find_by(Name: test_name, user_id: nil, status: 'available')
+  end
+
   private
 
   def user_presence_for_taken_tests
