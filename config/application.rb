@@ -37,5 +37,11 @@ module TrainingPlatform
 
     # Add this to ensure all times are processed in the configured zone
     ENV['TZ'] = 'Europe/Paris'
+
+    # Force SSL in production (Heroku)
+    config.force_ssl = true if Rails.env.production?
+
+    # Ensure CSRF token is included in all requests
+    config.action_controller.default_protect_from_forgery = true
   end
 end
