@@ -1,15 +1,21 @@
 class Question < ApplicationRecord
-  validates :content, presence: true
-  validates :answer, presence: true, inclusion: { in: %w[A B C D], message: "must be one of 'A', 'B', 'C', or 'D'" }
-  validates :options, presence: true
+  belongs_to :test
+  has_many :responses, dependent: :destroy
 
-  def options_as_hash
-    # Converts options from serialized JSON or text to a Ruby hash
-    JSON.parse(options)
+  validates :content, presence: true
+  validates :answer, presence: true
+  validates :options, presence: true, if: :multiple_choice?
+  validate :answer_in_options, if: :multiple_choice?
+
+  private
+
+  def multiple_choice?
+    test&.format == 'Multiple Choice'
   end
 
-  def correct_option
-    # Returns the text of the correct answer option
-    options_as_hash[answer]
+  def answer_in_options
+    if options.present? && !options.include?(answer)
+      errors.add(:answer, "must match one of the options")
+    end
   end
 end

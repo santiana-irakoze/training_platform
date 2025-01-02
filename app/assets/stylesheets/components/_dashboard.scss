@@ -49,14 +49,14 @@
 
 
 
-.dashboard-cards {
+.test-cards {
   margin-bottom: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
 }
 
-.dashboard-card {
+.test-card {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -66,25 +66,30 @@
   transition: box-shadow 0.3s;
 }
 
-.dashboard-card:hover {
+.test-card:hover {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
 }
 
-.dashboard-card p {
+.test-card p {
   margin: 0 0 15px;
   font-size: 14px;
   color: #666;
 }
 
-.dashboard-card-link {
+.test-card-link {
   color: #4a90e2;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
+  font-size: 10px;
   display: inline-block;
   margin-top: 10px;
 }
 
-.dashboard-card-link:hover {
+.test-card-link:hover {
   text-decoration: underline;
+}
+
+#back-to-catalog-btn {
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 5px;
 }

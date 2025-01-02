@@ -1,0 +1,28 @@
+<turbo-frame id="main-content">
+  <div class="results" style="padding: 47px;">
+    <h3 style="text-align: center; margin-bottom: 76px; font-size: 24px; font-weight: bold;">Available Tests</h3>
+
+    <div class="d-flex justify-content-evenly flex-wrap" style="gap: 20px;">
+      <% @tests.each do |test| %>
+        <%= link_to new_test_path(test_id: test.id), class: "test-link", style: "text-decoration: none;" do %>
+          <div class="test-card" style="border: 1px solid #ddd; border-radius: 10px; padding: 20px; width: 250px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: center; background-color: #fff;">
+            <h3 style="font-size: 18px; margin-bottom: 10px;"><%= test.Name %></h3>
+            <% if current_user.tests.exists?(id: test.id) %>
+              <p style="margin: 10px 0; font-size: 14px; color: #28a745;">✅ Already taken</p>
+            <% end %>
+            <p style="margin: 10px 0; font-size: 14px; color: #555;"> ⏳
+              <% if test.duration.present? %>
+                <%= test.duration %> min
+              <% else %>
+                Unlimited Time
+              <% end %>
+            </p>
+            <p style="margin: 10px 0; font-size: 14px; color: #555;">📝 Format: <%= test.format %></p>
+
+            <button style="padding: 5px 10px; margin-top: 10px; font-size: 14px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;">Start Test</button>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</turbo-frame>

@@ -1,0 +1,21 @@
+<turbo-frame id="main-content">
+  <div class="results" style="padding: 38px;">
+    <h3 style="text-align: center; margin-bottom: 70px; font-size: 24px; font-weight: bold;">Platform Statistics</h3>
+
+    <!-- Platform Overview Cards -->
+    <div class="d-flex justify-content-evenly flex-wrap" style="gap: 20px; margin-bottom: 40px;">
+      <div class="stat-card" style="border: 1px solid #ddd; border-radius: 10px; padding: 20px; width: 200px; text-align: center; background-color: #fff;">
+        <h5>Total Students</h5>
+        <p class="h2"><%= @students.count %></p>
+      </div>
+      <div class="stat-card" style="border: 1px solid #ddd; border-radius: 10px; padding: 20px; width: 200px; text-align: center; background-color: #fff;">
+        <h5>Total Tests Taken</h5>
+        <p class="h2"><%= Test.where(status: 'taken').count %></p>
+      </div>
+      <div class="stat-card" style="border: 1px solid #ddd; border-radius: 10px; padding: 20px; width: 200px; text-align: center; background-color: #fff;">
+        <h5>Engagement</h5>
+        <p class="h2"><%= Test.where(status: 'taken').average(:score)&.round || 'N/A' %>%</p>
+      </div>
+    </div>
+  </div>
+</turbo-frame>

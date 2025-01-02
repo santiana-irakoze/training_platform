@@ -30,5 +30,12 @@ module TrainingPlatform
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Set time zone to Europe/Paris for proper DST handling
+    config.time_zone = 'Europe/Paris'
+    config.active_record.default_timezone = :local
+
+    # Add this to ensure all times are processed in the configured zone
+    ENV['TZ'] = 'Europe/Paris'
   end
 end

@@ -1,23 +1,46 @@
-<%= form_for @test do |f| %>
-  <h2>Questions</h2>
-
-  <% @questions.each_with_index do |question, index| %>
-    <div class="form-group">
-      <h4><%= question.content %></h4>
-
-      <%= f.radio_button :answer, question.options[0] %>
-      <%= f.label :answer, question.options[0] %>
-
-      <%= f.radio_button :answer, question.options[1] %>
-      <%= f.label :answer, question.options[1] %>
-
-      <%= f.radio_button :answer, question.options[2] %>
-      <%= f.label :answer, question.options[2] %>
-
-      <%= f.radio_button :answer, question.options[3] %>
-      <%= f.label :answer, question.options[3] %>
+<turbo-frame id="main-content">
+  <% if Rails.env.development? %>
+    <div style="display: none">
+      Debug - Test Duration: <%= @test.duration %>
     </div>
   <% end %>
 
-  <%= f.submit "Submit Test" %>
-<% end %>
+  <%= form_with url: test_responses_path(@test), method: :post, local: true, data: { controller: "timer", turbo_frame: "main-content" } do |f| %>
+    <div class="results" style="padding: 42px;">
+
+      <div id="timer-container"
+           data-timer-target="container"
+           data-duration="<%= @test.duration %>"
+           data-test-id="<%= @test.id %>"
+           style="text-align: center; margin-bottom: 20px;">
+        <p id="timer"
+           data-timer-target="display"
+           style="font-size: 12px; color: gray;">
+           ⏳ Time Left: 00:00
+        </p>
+      </div>
+
+      <h3 style="text-align: center; margin-bottom: 35px; font-size: 24px; font-weight: bold;">Questions</h3>
+
+      <% @questions.each do |question| %>
+        <div class="form-group" style="margin-bottom: 20px;">
+          <p style="margin-bottom: 10px;"><%= question.content %></p>
+
+          <% if @test.format == 'Multiple Choice' %>
+            <% question.options.each do |option| %>
+              <div class="form-check">
+                <%= f.radio_button "answers[#{question.id}]", option, class: "form-check-input" %>
+                <%= f.label "answers[#{question.id}]", option, class: "form-check-label" %>
+              </div>
+            <% end %>
+          <% elsif @test.format == 'Written' %>
+            <%= f.text_area "answers[#{question.id}]", placeholder: "Write your answer...", style: "background-color: #ebf4f8; padding: 10px; border: 1px solid #ccc; border-radius: 5px; width: 100%;" %>
+          <% end %>
+
+        </div>
+      <% end %>
+
+      <%= f.submit "Submit Test", style: "padding: 5px 10px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer;" %>
+    </div>
+  <% end %>
+</turbo-frame>

@@ -1,6 +1,12 @@
-<h1>Test Details</h1>
-<p><strong>Test ID:</strong> <%= @test.id %></p>
-<p><strong>Score:</strong> <%= @test.score %></p>
-<p><strong>Duration:</strong> <%= @test.duration %> seconds</p>
-<p><strong>Date:</strong> <%= @test.date.strftime("%b %d, %Y") %></p>
-<%= link_to 'Back to History', tests_path %>
+<div class="container">
+  <turbo-frame id="main-content">
+    <div class="results" style="padding: 47px;">
+      <h3 style="text-align: start; margin-bottom: 36px; font-size: 24px; font-weight: bold;">Test results</h3>
+      <div class="test-card" style="border: 1px solid #ddd; border-radius: 10px; padding: 20px; width: 250px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: center; background-color: #fff;">
+        <h3 style="font-size: 18px; margin-bottom: 10px;"><%= @test.Name %></h3>
+        <p><strong>Score:</strong> <%= @test.score %>%</p>
+        <%= button_to 'Back to Catalog', dashboard_students_path, method: :get, id: 'back-to-catalog-btn', class: 'btn btn-primary', data: { turbo_frame: 'main-content' } %>
+      </div>
+    </div>
+  </turbo-frame>
+</div>

@@ -1,0 +1,26 @@
+<turbo-frame id="main-content">
+  <div class="results" style="padding: 47px;">
+    <% if @completed_tests.blank? %>
+      <h3 style="text-align: center; margin-bottom: 36px; font-size: 24px; font-weight: bold;">No tests completed yet!</h3>
+    <% else %>
+      <h3 style="text-align: center; margin-bottom: 76px; font-size: 24px; font-weight: bold;">Your learning records</h3>
+
+      <div class="d-flex justify-content-evenly flex-wrap" style="gap: 20px;">
+        <% @completed_tests.each do |test| %>
+          <div class="test-card" style="border: 1px solid #ddd; border-radius: 10px; padding: 20px; width: 250px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); background-color: #fff;">
+            <h3 style="font-size: 18px; margin-bottom: 10px; text-align: center;"><%= test.Name %></h3>
+            <p style="margin: 10px 0; font-size: 14px; color: #555; text-align: left;">
+              📊 Score: <%= test.score %>%
+            </p>
+            <p style="margin: 10px 0; font-size: 14px; color: #555; text-align: left;">
+              ⏱️ Time taken: <%= test.attributes['time_taken'] || 'N/A' %> seconds
+            </p>
+            <p style="margin: 10px 0; font-size: 14px; color: #555; text-align: left;">
+              📅 Completed: <%= test.date&.strftime("%d/%m/%y - %H:%M") %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</turbo-frame>

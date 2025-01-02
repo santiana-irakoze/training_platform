@@ -1,0 +1,17 @@
+<div class="dashboard-sidebar col-1">
+  <ul class="dashboard-tabs">
+    <!-- Student Management -->
+    <li>
+      <%= link_to dashboard_admins_students_path, class: "dashboard-tab", data: { turbo_frame: "main-content" } do %>
+        <i class="fa-solid fa-users"></i> Students
+      <% end %>
+    </li>
+
+    <!-- Statistics -->
+    <li>
+      <%= link_to dashboard_admins_statistics_path, class: "dashboard-tab", data: { turbo_frame: "main-content" } do %>
+        <i class="fa-solid fa-chart-pie"></i> Statistics
+      <% end %>
+    </li>
+  </ul>
+</div>

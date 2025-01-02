@@ -1,0 +1,17 @@
+<div class="dashboard-sidebar col-1">
+  <ul class="dashboard-tabs">
+    <!-- Catalog -->
+    <li>
+      <%= link_to dashboard_students_preview_path, class: "dashboard-tab", data: { turbo_frame: "main-content" } do %>
+        <i class="fa-solid fa-table-columns"></i> Catalog
+      <% end %>
+    </li>
+
+    <!-- Historic -->
+    <li>
+      <%= link_to dashboard_students_historic_path, class: "dashboard-tab", data: { turbo_frame: "main-content" } do %>
+        <i class="fa-solid fa-chart-line"></i> Historic
+      <% end %>
+    </li>
+  </ul>
+</div>

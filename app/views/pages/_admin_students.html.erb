@@ -1,0 +1,39 @@
+<turbo-frame id="main-content">
+  <div class="results" style="padding: 38px;">
+    <h3 style="text-align: center; margin-bottom: 70px; font-size: 24px; font-weight: bold;">Student Management</h3>
+
+    <div style="background-color: white; text-align: center; border-radius: 8px; box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05); padding: 20px;">
+      <div class="table-responsive" style="background-color: white;">
+        <table class="table table-hover align-middle">
+          <thead style="background-color: #f0f7ff;">
+            <tr style="background-color: #f0f7ff;">
+              <th scope="col" style="background-color: #f0f7ff;">Name</th>
+              <th scope="col" style="background-color: #f0f7ff;">Email</th>
+              <th scope="col" style="background-color: #f0f7ff;">Tests Taken</th>
+              <th scope="col" style="background-color: #f0f7ff;">Average Score</th>
+              <th scope="col" style="background-color: #f0f7ff;">Actions</th>
+            </tr>
+          </thead>
+          <tbody style="background-color: white; text-align: center;">
+            <% @students.each do |student| %>
+              <tr style="background-color: white;">
+                <td scope="row" style="background-color: white;"><%= student.first_name %></td>
+                <td scope="row" style="background-color: white;"><%= student.email %></td>
+                <td scope="row" style="background-color: white;"><%= student.tests.taken.count %></td>
+                <td scope="row" style="background-color: white;"><%= student.tests.taken.average(:score)&.round || 'N/A' %>%</td>
+                <td scope="row" style="background-color: white;">
+                  <%= button_to "Remove Student",
+                      user_path(student),
+                      method: :delete,
+                      data: { turbo_confirm: "Are you sure you want to remove this student?" },
+                      class: "btn btn-outline-danger btn-sm",
+                      style: "width: 100%; padding: 8px; border-radius: 6px;" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</turbo-frame>

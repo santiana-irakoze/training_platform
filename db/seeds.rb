@@ -1,46 +1,82 @@
-require 'faker'
-require 'open-uri'
+puts "Cleaning database..."
+# Delete in the correct order to handle foreign key constraints
+Response.destroy_all
+Question.destroy_all
+Test.destroy_all
+User.destroy_all
 
-puts 'Cleaning database...'
-Questions.destroy_all
-Tests.destroy_all
-Answers.destroy_all
-Users.destroy_all
+Questions = []
 
-puts "creating test 1"
-test = Test.create!(name: 'Test de Culture Générale')
+puts "Creating test 1"
 
-# Questions pour test 1
-question1 = test.questions.create!(content: 'Quelle est la capitale de la France ?', answer: 'Paris')
-question1.choices.create!(content: 'Paris', correct: true)
-question1.choices.create!(content: 'Londres')
-question1.choices.create!(content: 'Berlin')
-question1.choices.create!(content: 'Madrid')
+test1 = Test.create!(Name: "Capitals of the world", status: "available", score: nil, duration: 2, date: nil, format: "Multiple Choice")
 
-question2 = test.questions.create!(content: 'Quel est le plus grand océan du monde ?', answer: 'Océan Pacifique')
-question2.choices.create!(content: 'Océan Atlantique')
-question2.choices.create!(content: 'Océan Indien')
-question2.choices.create!(content: 'Océan Pacifique', correct: true)
-question2.choices.create!(content: 'Mer Méditerranée')
+puts "Creating questions for test 1"
 
-question3 = test.questions.create!(content: 'Quelle est la formule chimique de l’eau ?', answer: 'H2O')
-question3.choices.create!(content: 'H2O', correct: true)
-question3.choices.create!(content: 'CO2')
-question3.choices.create!(content: 'O2')
-question3.choices.create!(content: 'H2SO4')
+Questions << Question.create!(
+  content: "What is the capital of France?",
+  answer: "Paris",
+  options: ["London", "Paris", "Rome"],
+  test_id: test1.id
+)
 
-puts "creating test 2"
-test2 = Test.create!(name: 'Test de Mathématiques')
+Questions << Question.create!(
+  content: "What is the capital of Japan?",
+  answer: "Tokyo",
+  options: ["Seoul", "Beijing", "Tokyo"],
+  test_id: test1.id
+)
 
-# Créer des questions pour ce test
-question4 = test2.questions.create!(content: 'Combien font 5 + 3 ?', answer: '8')
-question4.choices.create!(content: '8', correct: true)
-question4.choices.create!(content: '7')
-question4.choices.create!(content: '9')
-question4.choices.create!(content: '10')
+Questions << Question.create!(
+  content: "What is the capital of Italy?",
+  answer: "Rome",
+  options: ["Milan", "Venice", "Rome"],
+  test_id: test1.id
+)
 
-question5 = test2.questions.create!(content: 'Quel est le carré de 4 ?', answer: '16')
-question5.choices.create!(content: '16', correct: true)
-question5.choices.create!(content: '14')
-question5.choices.create!(content: '12')
-question5.choices.create!(content: '18')
+Questions << Question.create!(
+  content: "What is the capital of Burundi?",
+  answer: "Bujumbura",
+  options: ["Bujumbura", "Kigali", "Kampala"],
+  test_id: test1.id
+)
+
+Questions << Question.create!(
+  content: "What is the capital of Germany?",
+  answer: "Berlin",
+  options: ["Munich", "Hamburg", "Berlin"],
+  test_id: test1.id
+)
+
+puts "Creating test 2"
+
+test2 = Test.create!(Name: "Maths game", status: "available", score: nil, duration: 1, date: nil, format: "Written")
+
+puts "Creating questions for test 2"
+
+Questions << Question.create!(
+  content: "What is 2 + 2?",
+  answer: "4",
+  test_id: test2.id
+)
+Questions << Question.create!(
+  content: "What is the square of 4?",
+  answer: "16",
+  test_id: test2.id
+)
+
+puts "Creating test 3"
+
+test3 = Test.create!(Name: "Random Test", status: "available", score: nil, date: nil, format: "Written")
+
+# Randomquestions from other tests
+Questions.sample(3).each do |question|
+  Question.create!(
+    content: question.content,
+    answer: question.answer,
+    options: question.options,
+    test_id: test3.id
+  )
+end
+
+puts "Seeding completed successfully!"
