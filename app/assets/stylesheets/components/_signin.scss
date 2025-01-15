@@ -14,21 +14,28 @@
 .card h2 {
   color: #fff; /* White text for the title */
   font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: medium;
 }
-
+.name-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
 .form-inputs .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.form-inputs .form-control {
+.form-inputs .form-control,
+.form-inputs select {
   border-radius: 8px;
-  padding: 0.75rem 1rem;
   border: 1px solid #ddd; /* Light border */
   background-color: #fff;
   transition: border-color 0.3s ease;
 }
 
-.form-inputs .form-control:focus {
+.form-inputs .form-control:focus,
+.form-inputs select:focus {
   border-color: $very-light-blue; /* Highlight color on focus */
   box-shadow: 0 0 8px rgba(255, 126, 95, 0.5); /* Subtle glow */
 }
@@ -37,10 +44,13 @@
   background-color: $very-light-blue;
   border-color: $light-beige;
   border-radius: 8px;
-  padding: 0.75rem 1.25rem;
+  padding: 0.4rem 1.25rem;
+  height: 2.5
+  rem;
   font-size: 1.2rem;
   font-weight: bold;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 7px;
 }
 
 .btn-primary:hover {
@@ -49,6 +59,9 @@
 }
 
 .text-center {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
   font-size: 0.8rem;
   color: #666; /* Subtle text for links */
 }
@@ -57,6 +70,7 @@
   text-decoration: none;
   color: $light-green;
   font-weight: bold;
+  font-size: 0.9rem;
 }
 
 .text-center a:hover {

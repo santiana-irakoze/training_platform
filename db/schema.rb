@@ -72,7 +72,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_02_035059) do
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status"
+    t.string "status", default: "available"
     t.string "Name"
     t.string "format"
     t.integer "time_taken"

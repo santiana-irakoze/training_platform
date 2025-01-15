@@ -11,3 +11,15 @@
 @import "components/index";
 @import "pages/index";
 
+// Global styles
+html, body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.content-wrapper {
+  height: calc(100vh - 126px); // Ajustez selon la hauteur de votre navbar
+  overflow-y: auto;
+  position: relative;
+  padding-bottom: 50px;
+}
