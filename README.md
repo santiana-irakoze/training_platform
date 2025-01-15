@@ -15,5 +15,6 @@ et en étant admin, les fonctionnalités permettent de gérer les students (les 
 - **PostgreSQL** pour la base de données
 - **Stimulus
 
-## Aperçu 👀
-[Voir la démo en ligne]([https://nom-du-projet.herokuapp.com](https://training-platform-2ba6e61417f4.herokuapp.com/))
+## petit aperçu 👀
+https://santiana-irakoze.github.io/training_platform/
+
